@@ -1,0 +1,228 @@
+:root {
+  --bg: #0b0b0b;
+  --card: #121212;
+  --text: #ffffff;
+  --muted: #bfc3c6;
+  --accent: #e02020;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 20px;
+}
+
+/* HEADER */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo img { width: 60px; }
+.actions { display: flex; gap: 15px; }
+.search input {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  background: #1c1c1c;
+  color: var(--text);
+}
+
+/* TOGGLE SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #555;
+  border-radius: 34px;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: var(--accent);
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* FILTERS */
+.filters {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* CATALOG */
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 250px));
+  justify-content: center; /* Centraliza cards quando são poucos */
+  gap: 18px;
+}
+
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 10px;
+  overflow: hidden;
+  transition: all .3s ease;
+  cursor: pointer;
+  position: relative;
+
+  /* IMPORTANTE: não centralizar todo o conteúdo do card */
+  /* display: flex; align-items:center; */ /* Remover/evitar isso */
+}
+
+/* Caixa dedicada para imagem: fundo branco + centralização */
+.card .img-box {
+  width: 100%;
+  height: 220px;              /* altura fixa para todos os cards */
+  background: #fff;           /* fundo branco do catálogo */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;        /* centraliza verticalmente */
+  justify-content: center;    /* centraliza horizontalmente */
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Imagem dentro da caixa: nunca estoura e fica centralizada */
+.card .img-box img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;    /* evita forçar 100% de largura */
+  height: auto;   /* mantém proporção real */
+  margin: 0 auto;
+  object-fit: contain;       /* preserva proporção em navegadores modernos */
+  object-position: center;
+}
+
+/* Garantir que nenhuma regra antiga force comportamento diferente */
+.card img {
+  /* apenas fallback - a classe mais específica (.card .img-box img) prevalecerá */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 12px var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox img {
+  max-width: 100%;
+  max-height: 80vh;   /* limita a altura à tela */
+  display: block;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.lightbox.open { display: flex; }
+.panel {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 500px;
+}
+.close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Ícones sociais */
+/* Ícones sociais */
+/* Ícones sociais */
+/* Ícones sociais */
+.social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.social a img {
+  width: 26px;
+  height: 26px;
+  filter: brightness(0) invert(1); /* Deixa branco no dark mode */
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.social a:hover img {
+  transform: scale(1.15);
+  filter: brightness(0) invert(1) drop-shadow(0 0 4px var(--accent));
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 8px;
+  }
+
+  .card .img-box {
+    height: 180px; /* reduz altura da caixa no celular */
+    padding: 6px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vinix Labs — Catálogo 3D</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top">
+    <div class="brand">
+      <div class="logo">
+        <img src="img/logo.png" alt="Vinix Labs logo" />
+      </div>
+      <div>
+        <h1>Vinix Labs</h1>
+        <p>Impressão 3D — Peças, protótipos e colecionáveis</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="search">
+        <input id="q" type="search" placeholder="Buscar produto..." aria-label="Buscar produtos" />
+      </div>
+
+      <!-- Toggle Tema -->
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+      <!-- Redes Sociais -->
+      <div class="social">
+        <a href="https://wa.me/message/HZGG7UJUJ45JG1" target="_blank" aria-label="WhatsApp">
+          <img src="img/brand-whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/vinix_labs?igsh=MThwZDJoYjQ2dTZlag==" target="_blank" aria-label="Instagram">
+          <img src="img/brand-instagram.png" alt="Instagram">
+        </a>
+      </div>
+
+
+  </header>
+
+  <!-- Filtros -->
+  <nav class="filters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="Decoração">Decorações</button>
+    <button class="filter-btn" data-filter="Suporte">Suportes</button>
+    <button class="filter-btn" data-filter="Boneco">Bonecos</button>
+  </nav>
+
+  <!-- Catálogo -->
+  <main class="catalog" id="catalog"></main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="panel">
+      <button class="close" id="closeLightbox">✕</button>
+      <img id="lightboxImg" src="" alt="Produto" />
+      <h2 id="lightboxTitle"></h2>
+      <p id="lightboxDesc"></p>
+      <div id="lightboxPrice"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
