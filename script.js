@@ -316,7 +316,7 @@ const products = [
     id: "p41",
     title: "Pokebola Charizard",
     price: "",
-    img: "img/pokebola_charizard.jpg",
+    img: "img/pokebola_charizard.JPG",
     desc: "Pokebola Pokémon Charizard decorativa.",
     tags: ["Decoração"]
   },
