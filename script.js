@@ -249,14 +249,6 @@ const products = [
     tags: ["Decoração"]
   },
   {
-    id: "p32",
-    title: "Miles Morales",
-    price: "",
-    img: "img/miles_morales.jpeg",
-    desc: "Decoração do Miles Morales.",
-    tags: ["Decoração"]
-  },
-  {
     id: "p33",
     title: "Bart Simpson",
     price: "",
