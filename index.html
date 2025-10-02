@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Vinix Labs — Catálogo 3D</title>
+
+  <!-- Fonte mais atrativa -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,23 +17,33 @@
       <div class="logo">
         <img src="img/logo.png" alt="Vinix Labs logo" />
       </div>
-      <div>
+      <div class="brand-text">
         <h1>Vinix Labs</h1>
         <p>Impressão 3D — Peças, protótipos e colecionáveis</p>
       </div>
     </div>
 
-    <div class="actions">
-      <div class="search">
+    <div class="center-actions">
+      <div class="search" role="search" aria-label="Buscar produtos">
+        <span class="search-icon" aria-hidden="true">
+          <!-- lupa SVG -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
         <input id="q" type="search" placeholder="Buscar produto..." aria-label="Buscar produtos" />
       </div>
 
+      <button id="ctaOrder" class="cta">Peça já</button>
+    </div>
+
+    <div class="actions">
       <!-- Toggle Tema -->
-      <label class="switch">
+      <label class="switch" title="Alternar tema">
         <input type="checkbox" id="themeToggle">
         <span class="slider"></span>
       </label>
-    </div>
 
       <!-- Redes Sociais -->
       <div class="social">
@@ -40,29 +54,51 @@
           <img src="img/brand-instagram.png" alt="Instagram">
         </a>
       </div>
-
-
+    </div>
   </header>
 
   <!-- Filtros -->
-  <nav class="filters">
-    <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="Decoração">Decorações</button>
-    <button class="filter-btn" data-filter="Suporte">Suportes</button>
-    <button class="filter-btn" data-filter="Boneco">Bonecos</button>
+  <nav class="filters" aria-label="Filtros de categoria">
+    <button class="filter-btn active" data-filter="all">
+      <!-- ícone todos -->
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Todos
+    </button>
+
+    <button class="filter-btn" data-filter="Decoração">
+      <!-- ícone decoração (folha) -->
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Decorações
+    </button>
+
+    <button class="filter-btn" data-filter="Suporte">
+      <!-- ícone suporte (suporte simples) -->
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v6H6zM8 15h8v6H8z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      Suportes
+    </button>
+
+    <button class="filter-btn" data-filter="Boneco">
+      <!-- ícone boneco -->
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M6 21c0-3 4-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+      Bonecos
+    </button>
   </nav>
 
   <!-- Catálogo -->
-  <main class="catalog" id="catalog"></main>
+  <main class="catalog" id="catalog" aria-live="polite"></main>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="panel">
-      <button class="close" id="closeLightbox">✕</button>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <button class="close" id="closeLightbox" aria-label="Fechar">✕</button>
       <img id="lightboxImg" src="" alt="Produto" />
       <h2 id="lightboxTitle"></h2>
       <p id="lightboxDesc"></p>
-      <div id="lightboxPrice"></div>
+      <div id="lightboxPrice" class="lb-price"></div>
+      <div class="lb-actions">
+        <button id="lbBuy" class="btn-primary">Comprar</button>
+        <button id="lbContact" class="btn-outline">Contato / Personalizar</button>
+      </div>
     </div>
   </div>
 
